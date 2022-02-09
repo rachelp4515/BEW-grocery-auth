@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>New Store</h1>
+<!-- -->
+ <form method="POST"  action="{{ url_for('main.new_store') }}" > 
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Please enter your information:</legend>
+        {{ form.title.label }}
+        {{ form.title }}
+
+        <ul>
+            {% for error in form.title.errors %}
+            <li class="'error"> {{ error }}</li>
+            {% endfor %}
+        </ul>
+
+        {{ form.address.label }}
+        {{ form.address }}
+
+        {{ form.submit }}
+
+        <!-- TODO: Remove the next paragraph and use the `form` object passed in 
+            from the route to render a form. -->
+
+        <!-- <input type="submit" value="Submit"> -->
+    </fieldset>
+</form>
+
+
+{% endblock %}
