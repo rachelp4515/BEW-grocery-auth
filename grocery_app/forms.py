@@ -7,11 +7,9 @@ from grocery_app.models import ItemCategory, GroceryStore
 class GroceryStoreForm(FlaskForm):
     """Form for adding/updating a GroceryStore."""
 
-    title = StringField('Grocery store Title', 
-        validators=[
-            DataRequired(), 
-            Length(min=3, max=80, message="Your message needs to be betweeen 3 and 80 chars")
-        ])
+    title = StringField(
+        "Store Title", validators=[DataRequired(), Length(min=3, max=80)]
+    )
     address = StringField('Address')
     submit = SubmitField('Submit')
     
